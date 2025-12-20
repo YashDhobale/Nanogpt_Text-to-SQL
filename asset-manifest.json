@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Nanogpt_Text-to-SQL/static/css/main.342b29ad.css",
+    "main.js": "/Nanogpt_Text-to-SQL/static/js/main.ca9adddd.js",
+    "static/js/453.64512fd7.chunk.js": "/Nanogpt_Text-to-SQL/static/js/453.64512fd7.chunk.js",
+    "index.html": "/Nanogpt_Text-to-SQL/index.html",
+    "main.342b29ad.css.map": "/Nanogpt_Text-to-SQL/static/css/main.342b29ad.css.map",
+    "main.ca9adddd.js.map": "/Nanogpt_Text-to-SQL/static/js/main.ca9adddd.js.map",
+    "453.64512fd7.chunk.js.map": "/Nanogpt_Text-to-SQL/static/js/453.64512fd7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.342b29ad.css",
+    "static/js/main.ca9adddd.js"
+  ]
+}
