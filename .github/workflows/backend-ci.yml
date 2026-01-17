@@ -27,5 +27,5 @@ jobs:
       - name: Run backend sanity check
         run: |
           python - <<EOF
-          print("Backend check successful!")
+          print("Backend check is successful!")
           EOF
