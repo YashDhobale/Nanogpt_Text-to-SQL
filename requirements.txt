@@ -1,0 +1,7 @@
+fastapi 
+pydantic
+torch
+uvicorn
+transformers
+sentence_transformers
+numpy
