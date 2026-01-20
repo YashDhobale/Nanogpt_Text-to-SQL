@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
                     sh '''
-                ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} << EOF
+                ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST}
 
                 echo "Stopping existing nanogpt container (if running)"
                 docker stop nanogptnewcont || true
@@ -43,7 +43,6 @@ pipeline {
                     ${IMAGE_NAME}:latest
 
                 echo "Deployment from br1 has been completed successfully"
-                EOF
                 '''
                 }
             }
