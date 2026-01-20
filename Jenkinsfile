@@ -12,7 +12,7 @@ pipeline {
 
         stage('Deploy') {
             when {
-                branch 'main'
+                branch 'br1'
             }
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
@@ -23,7 +23,7 @@ pipeline {
                       cd ${APP_DIR}
 
                       echo "Pulling latest code"
-                      git pull origin main
+                      git pull origin br1
 
                       echo "Building new Docker image"
                       docker build -t ${IMAGE_NAME}:latest .
