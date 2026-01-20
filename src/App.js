@@ -62,7 +62,7 @@ export default function App() {
       }
       const data = await resp.json();
       setGenerated(data.generated_text);
-      setSchema(data.schema_new);
+      /**setSchema(data.schema_new);**/ 
       setHistory(h => [{ prompt, output: data.generated_text, time: new Date().toISOString() }, ...h]);
     } catch (e) {
       setError(e.message || String(e));
