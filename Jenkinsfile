@@ -12,7 +12,9 @@ pipeline {
 
         stage('Deploy') {
             when {
-                branch 'br1'
+                expression {
+                    return env.GIT_BRANCH == 'origin/br1'
+                }   
             }
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
