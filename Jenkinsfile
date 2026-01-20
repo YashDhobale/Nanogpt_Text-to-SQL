@@ -19,30 +19,32 @@ pipeline {
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
                     sh '''
-                    ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} << EOF
-                      
-                      echo "Going to app directory"
-                      cd ${APP_DIR}
+                ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} << EOF
 
-                      echo "Pulling latest code"
-                      git pull origin br1
+                echo "Stopping existing nanogpt container (if running)"
+                docker stop nanogptnewcont || true
+                docker rm nanogptnewcont || true
+                docker rmi ${IMAGE_NAME}:latest || true
 
-                      echo "Building new Docker image"
-                      docker build -t ${IMAGE_NAME}:latest .
+                echo "Going to app directory"
+                cd ${APP_DIR}
 
-                      echo "Stopping existing nanogpt container (if running)"
-                      docker stop nanogpt || true
+                echo "Pulling latest code"
+                git pull origin br1
 
-                      echo "Starting new nanogpt container"
-                      docker run -d \
-                        --name nanogptnewcont \
-                        --restart unless-stopped \
-                        -p 8000:8000 \
-                        ${IMAGE_NAME}:latest
+                echo "Building new Docker image"
+                docker build -t ${IMAGE_NAME}:latest .
 
-                      echo "Deployment from br1 has been completed successfully"
-                    EOF
-                    '''
+                echo "Starting new nanogpt container"
+                docker run -d \
+                    --name nanogptnewcont \
+                    --restart unless-stopped \
+                    -p 8000:8000 \
+                    ${IMAGE_NAME}:latest
+
+                echo "Deployment from br1 has been completed successfully"
+                EOF
+                '''
                 }
             }
         }
