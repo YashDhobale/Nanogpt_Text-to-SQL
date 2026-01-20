@@ -40,7 +40,7 @@ pipeline {
                         -p 8000:8000 \
                         ${IMAGE_NAME}:latest
 
-                      echo "Deployment from br1 completed"
+                      echo "Deployment from br1 completed successfully"
                     EOF
                     '''
                 }
