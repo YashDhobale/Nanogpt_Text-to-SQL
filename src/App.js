@@ -9,7 +9,7 @@ export default function App() {
   const [history, setHistory] = useState([]);
   const [max_iters, setMaxIters] = useState(5000);
   const [uploadedFile, setUploadedFile] = useState(null);
-  const [schema, setSchema] = useState("CREATE TABLE green_buildings (id INT, name VARCHAR(50), country VARCHAR(50), energy_consumption INT); INSERT INTO green_buildings (id, name, country, energy_consumption) VALUES (1, 'GreenHub', 'India', 1200), (2, 'EcoTower', 'China', 1500), (3, 'SolarVista', 'Japan', 1800);");
+  /*const [schema, setSchema] = useState("CREATE TABLE green_buildings (id INT, name VARCHAR(50), country VARCHAR(50), energy_consumption INT); INSERT INTO green_buildings (id, name, country, energy_consumption) VALUES (1, 'GreenHub', 'India', 1200), (2, 'EcoTower', 'China', 1500), (3, 'SolarVista', 'Japan', 1800);");*/
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -85,7 +85,7 @@ export default function App() {
       
       <label style={{ display: 'block', marginTop: 16, marginBottom: 6, fontWeight: 600 }}>Schema</label>
       <div style={{ width: '100%', fontSize: 14, padding: 10, borderRadius: 6, border: '1px solid #ddd' }}>
-        {schema}
+        CREATE TABLE green_buildings (id INT, name VARCHAR(50), country VARCHAR(50), energy_consumption INT); INSERT INTO green_buildings (id, name, country, energy_consumption) VALUES (1, 'GreenHub', 'India', 1200), (2, 'EcoTower', 'China', 1500), (3, 'SolarVista', 'Japan', 1800);
       </div>
       
       <label style={{ display: 'block', marginTop: 16, marginBottom: 6, fontWeight: 600 }}>Prompt</label>
