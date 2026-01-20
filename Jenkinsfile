@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
                     sh '''
-                ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST}
+                ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} << EOF
 
                 echo "Stopping existing nanogpt container (if running)"
                 docker stop nanogptnewcont || true
